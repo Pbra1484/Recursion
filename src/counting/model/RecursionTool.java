@@ -2,7 +2,7 @@ package counting.model;
 
 public class RecursionTool 
 {
-	public int calculateFactorial(int currentNumber)
+	public double calculateFactorial(double currentNumber)
 	{
 		if(currentNumber == 1 || currentNumber == 1)
 		{

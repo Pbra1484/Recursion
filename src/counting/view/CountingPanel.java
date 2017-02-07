@@ -28,7 +28,6 @@ public class CountingPanel extends JPanel
 		factButton = new JButton("");
 		
 		
-		
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -47,11 +46,32 @@ public class CountingPanel extends JPanel
 		}
 	private void setupLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.WEST, textArea, 135, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, textField, 130, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, textField, -178, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, textField, -130, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, textArea, -6, SpringLayout.NORTH, textField);
+		baseLayout.putConstraint(SpringLayout.NORTH, fibButton, 6, SpringLayout.SOUTH, textField);
+		baseLayout.putConstraint(SpringLayout.WEST, fibButton, 0, SpringLayout.WEST, textArea);
+		baseLayout.putConstraint(SpringLayout.NORTH, factButton, 6, SpringLayout.SOUTH, textField);
+		baseLayout.putConstraint(SpringLayout.EAST, factButton, 0, SpringLayout.EAST, textArea);
 	}
 	private void setupListeners()
 	{
-		
+		factButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				textArea.setText(baseController.trasferFactorial(textField.getText()));
+			}
+		});
+		fibButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
 	}
 
 }
