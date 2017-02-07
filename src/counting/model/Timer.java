@@ -27,6 +27,7 @@ public class Timer
 	public String toString()
 	{
 		String info = "The execution time is: " + executionTime + " in nonowseconds";
+		info += "\nWhich is " + ((double) executionTime)/ 1000000000;
 		return info;
 	}
 

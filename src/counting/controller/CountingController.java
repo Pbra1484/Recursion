@@ -1,17 +1,19 @@
 package counting.controller;
 
 import counting.view.CountingFrame;
-import counting.model.RecursionTool;
+import counting.model.*;
 import javax.swing.JOptionPane;
 public class CountingController 
 {
 	private CountingFrame countingFrame;
 	private RecursionTool mathTool;
+	private Timer mathTimer;
 	
 	public CountingController()
 	{
 		this.countingFrame = new CountingFrame(this);
 		this.mathTool = new RecursionTool();
+		this.mathTimer = new Timer();
 	}
 	
 	public void start()
@@ -23,12 +25,35 @@ public class CountingController
 	{
 		String factorialInfo = "The factor of " + input + " is ";
 		
+		mathTimer.startTimer();
+		
 		if(isValid(input))
 		{
 			factorialInfo += mathTool.calculateFactorial(Integer.parseInt(input));
 		}
 		
+		mathTimer.stopTimer();
+		
+		factorialInfo += "\n" + mathTimer.toString();
+		
 		return factorialInfo;
+	}
+	public String trasferFibonacci(String input)
+	{
+		String fibonacciInfo = "The fibonacci of " + input + " is ";
+		
+		mathTimer.startTimer();
+		
+		if(isValid(input))
+		{
+			fibonacciInfo += mathTool.calculateFibonacci(Integer.parseInt(input));
+		}
+		
+		mathTimer.stopTimer();
+		
+		fibonacciInfo += "\n" + mathTimer.toString();
+		
+		return fibonacciInfo;
 	}
 	
 	private boolean isValid(String testValue)

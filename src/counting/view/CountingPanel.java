@@ -23,9 +23,20 @@ public class CountingPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		textArea = new JTextArea(5, 15);
+		baseLayout.putConstraint(SpringLayout.NORTH, textArea, 10, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, textArea, 72, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, textArea, -166, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, textArea, -72, SpringLayout.EAST, this);
 		textField = new JTextField(15);
-		fibButton = new JButton("");
-		factButton = new JButton("");
+		baseLayout.putConstraint(SpringLayout.NORTH, textField, 20, SpringLayout.SOUTH, textArea);
+		baseLayout.putConstraint(SpringLayout.WEST, textField, 72, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, textField, -72, SpringLayout.EAST, this);
+		fibButton = new JButton("Fibonacci");
+		baseLayout.putConstraint(SpringLayout.WEST, fibButton, 10, SpringLayout.WEST, this);
+		factButton = new JButton("Factorial");
+		baseLayout.putConstraint(SpringLayout.NORTH, fibButton, 0, SpringLayout.NORTH, factButton);
+		baseLayout.putConstraint(SpringLayout.SOUTH, factButton, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, factButton, -10, SpringLayout.EAST, this);
 		
 		
 		setupPanel();
@@ -46,15 +57,6 @@ public class CountingPanel extends JPanel
 		}
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.WEST, textArea, 135, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, textField, 130, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, textField, -178, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, textField, -130, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, textArea, -6, SpringLayout.NORTH, textField);
-		baseLayout.putConstraint(SpringLayout.NORTH, fibButton, 6, SpringLayout.SOUTH, textField);
-		baseLayout.putConstraint(SpringLayout.WEST, fibButton, 0, SpringLayout.WEST, textArea);
-		baseLayout.putConstraint(SpringLayout.NORTH, factButton, 6, SpringLayout.SOUTH, textField);
-		baseLayout.putConstraint(SpringLayout.EAST, factButton, 0, SpringLayout.EAST, textArea);
 	}
 	private void setupListeners()
 	{
@@ -69,7 +71,7 @@ public class CountingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				textArea.setText(baseController.trasferFibonacci(textField.getText()));
 			}
 		});
 	}
