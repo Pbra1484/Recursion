@@ -53,8 +53,25 @@ public class CountingController
 		
 		fibonacciInfo += "\n" + mathTimer.toString();
 		
+		mathTimer.resetTimer();
+		
+		fibonacciInfo += "\nThe iterated version returns";
+		
+		mathTimer.startTimer();
+		
+		if(isValid(input))
+		{
+			fibonacciInfo += mathTool.calaculateIteratibeFibonacci(Integer.parseInt(input));
+		}
+		
+		mathTimer.stopTimer();
+		
+		fibonacciInfo += "\n" + mathTimer.toString();
+		
 		return fibonacciInfo;
 	}
+	
+	
 	
 	private boolean isValid(String testValue)
 	{

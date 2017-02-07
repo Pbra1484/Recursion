@@ -25,5 +25,17 @@ public class RecursionTool
 			return calculateFibonacci(currentNumber - 1) + calculateFibonacci(currentNumber - 2);
 		}
 	}
+	
+	public int calaculateIteratibeFibonacci(int currentNumber)
+	{
+		int x = 0, y = 1, z = 1;
+		for (int i = 0; i < currentNumber; i++)
+		{
+			x = y;
+			y = z;
+			z = x + y;
+		}
+		return x;
+	}
 
 }
