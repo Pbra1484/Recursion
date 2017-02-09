@@ -29,7 +29,21 @@ public class CountingController
 		
 		if(isValid(input))
 		{
-			factorialInfo += mathTool.calculateFactorial(Integer.parseInt(input));
+			factorialInfo += mathTool.calculateFactorial(Double.parseDouble(input));
+		}
+		
+		mathTimer.stopTimer();
+		
+		factorialInfo += "\n" + mathTimer.toString();
+		mathTimer.resetTimer();
+		
+		factorialInfo += "\nThe iterative returns ";
+		
+		mathTimer.startTimer();
+		
+		if(isValid(input))
+		{
+			factorialInfo += mathTool.factorial(Double.parseDouble(input));
 		}
 		
 		mathTimer.stopTimer();

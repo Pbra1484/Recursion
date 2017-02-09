@@ -37,5 +37,15 @@ public class RecursionTool
 		}
 		return x;
 	}
+	
+	public double factorial(double number)
+	{
+		double product = 1;
+		for(double index = 1; index <= number; index++)
+		{
+			product *= index;
+		}
+		return product;
+	}
 
 }
