@@ -29,7 +29,7 @@ public class RecursionTool
 	public int calaculateIteratibeFibonacci(int currentNumber)
 	{
 		int x = 0, y = 1, z = 1;
-		for (int i = 0; i < currentNumber; i++)
+		for (int i = 0; i <= currentNumber; i++)
 		{
 			x = y;
 			y = z;
